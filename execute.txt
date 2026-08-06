@@ -1,0 +1,9 @@
+cd D:\AI_SQL_Assistant\backend
+.\.venv\Scripts\activate
+copy .env.example .env
+uvicorn app.main:app --reload
+
+cd D:\AI_SQL_Assistant\frontend
+copy .env.example .env
+npm install
+npm run dev

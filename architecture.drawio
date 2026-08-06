@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" modified="2026-08-06T00:00:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="ai-sql-assistant-architecture" name="AI SQL Assistant Architecture">
+    <mxGraphModel dx="1434" dy="789" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="user" value="User&#xa;Natural language question" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0284c7;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="40" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="frontend" value="React Frontend&#xa;Vite + Tailwind + Axios" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="145" width="300" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="backend" value="FastAPI Backend&#xa;POST /generate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="255" width="300" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="provider" value="AI Provider Router&#xa;AI_PROVIDER=gemini or openai" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede9fe;strokeColor=#7c3aed;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="365" width="300" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="gemini" value="Gemini API&#xa;GOOGLE_API_KEY + model fallback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce7f3;strokeColor=#db2777;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="500" width="300" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="openai" value="OpenAI API Optional&#xa;OPENAI_API_KEY fallback provider" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0e7ff;strokeColor=#4f46e5;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="500" width="300" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="parser" value="Response Parser&#xa;Extracts JSON from model output" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#0f766e;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="635" width="300" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="localfallback" value="Local SQL Fallback&#xa;Known schema + example prompts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffedd5;strokeColor=#ea580c;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="635" width="300" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="validator" value="SQL Validator&#xa;Blocks DROP, DELETE, ALTER, UPDATE, TRUNCATE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="760" width="300" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="sqlite" value="SQLite Database&#xa;Departments, Students, Courses, Enrollments" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#475569;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="760" width="340" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="user" target="frontend" style="endArrow=block;html=1;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="frontend" target="backend" style="endArrow=block;html=1;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="backend" target="provider" style="endArrow=block;html=1;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="provider" target="gemini" style="endArrow=block;html=1;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="provider" target="openai" style="endArrow=block;html=1;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="gemini" target="parser" style="endArrow=block;html=1;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="openai" target="parser" style="endArrow=block;html=1;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="parser" target="localfallback" style="endArrow=block;html=1;rounded=0;strokeWidth=2;dashed=1;" value="invalid or empty JSON">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="parser" target="validator" style="endArrow=block;html=1;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="localfallback" target="validator" style="endArrow=block;html=1;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="validator" target="sqlite" style="endArrow=block;html=1;rounded=0;strokeWidth=2;" value="schema-aware read-only SQL">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
