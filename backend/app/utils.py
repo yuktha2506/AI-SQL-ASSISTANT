@@ -3,7 +3,6 @@ import logging
 import re
 from typing import Any
 
-
 def configure_logging() -> None:
     logging.basicConfig(
         level=logging.INFO,
