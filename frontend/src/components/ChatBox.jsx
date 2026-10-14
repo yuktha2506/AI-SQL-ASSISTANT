@@ -1,5 +1,4 @@
 import { Loader2, Sparkles } from 'lucide-react';
-
 export default function ChatBox({ question, setQuestion, onGenerate, loading }) {
   return (
     <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900">
