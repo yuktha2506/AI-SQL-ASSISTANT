@@ -1,7 +1,5 @@
 import logging
-
 from fastapi import APIRouter, HTTPException, status
-
 from app.schemas import GenerateSQLRequest, GenerateSQLResponse
 from app.sql_generator import SQLGenerator
 from app.validator import SQLValidationError
