@@ -47,6 +47,5 @@ Response JSON shape:
   "sql": "SELECT ...;",
   "explanation": "Short explanation of what the SQL does."
 }}
-
 {SCHEMA_DESCRIPTION}
 """
