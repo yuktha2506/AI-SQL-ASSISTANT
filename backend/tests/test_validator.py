@@ -1,7 +1,5 @@
 import pytest
-
 from app.validator import SQLValidationError, validate_sql
-
 
 def test_allows_select_query():
     sql = "SELECT department_name FROM departments;"
