@@ -1,7 +1,5 @@
 import re
-
 from app.config import get_settings
-
 
 DANGEROUS_SQL_KEYWORDS = ("DROP", "DELETE", "ALTER", "UPDATE", "TRUNCATE")
 
