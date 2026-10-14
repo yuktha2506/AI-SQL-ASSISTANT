@@ -1,6 +1,5 @@
 import logging
 from pathlib import Path
-
 from sqlalchemy import text
 
 from app import models  # noqa: F401
