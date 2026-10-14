@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS courses (
   FOREIGN KEY (department_id) REFERENCES departments(department_id)
 );
 
+
 CREATE TABLE IF NOT EXISTS enrollments (
   enrollment_id INTEGER PRIMARY KEY,
   student_id INTEGER NOT NULL,
