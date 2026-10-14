@@ -1,5 +1,4 @@
 import logging
-
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from app.config import get_settings
