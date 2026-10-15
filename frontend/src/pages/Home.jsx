@@ -8,7 +8,6 @@ import ExampleQuestions from '../components/ExampleQuestions.jsx';
 import ExplanationBox from '../components/ExplanationBox.jsx';
 import QueryHistory from '../components/QueryHistory.jsx';
 import SQLViewer from '../components/SQLViewer.jsx';
-
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
 function downloadFile(filename, content, mimeType) {
