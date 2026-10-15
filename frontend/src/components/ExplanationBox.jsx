@@ -6,5 +6,4 @@ export default function ExplanationBox({ explanation }) {
         {explanation || 'A plain-English explanation of the generated SQL will appear here.'}
       </p>
     </section>
-  );
-}
+  );}
