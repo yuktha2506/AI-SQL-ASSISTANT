@@ -32,8 +32,7 @@ export default function QueryHistory({ history, onSelect, onExport }) {
               <p className="line-clamp-2 text-sm font-medium text-slate-800 dark:text-slate-100">{item.question}</p>
               <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{item.createdAt}</p>
             </button>
-          ))
-        )}
+          )))}
       </div>
     </aside>
   );
