@@ -83,5 +83,4 @@ export default function SQLViewer({ sql, onCopy, onDownload }) {
         )}
       </div>
     </section>
-  );
-}
+  );}
